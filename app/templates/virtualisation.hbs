@@ -1,0 +1,168 @@
+<main class="main virtualisation__main">
+  <h1>Virtualisation</h1>
+  <section>
+    <h2>Contexte (exemple)</h2>
+    <p>
+      Vous faites partie d’une petite entreprise de développement informatique,
+      composée d’environ 20 salariés.
+    </p>
+    <p>
+      Chaque employé possède un ordinateur Linux, Mac ou Windows selon ses
+      besoins, auxquels s’ajoutent quelques smartphones sous Android.
+    </p>
+  </section>
+  <section>
+    <h2>Déployer une application de stockage de données</h2>
+    <p>
+      Vous souhaitez déployer une application de stockage de données sur tout
+      votre parc informatique.
+    </p>
+
+    <p>
+      Plusieurs applications répondent aux besoins de l’entreprise, mais avant
+      d’en choisir une, vous souhaitez tester si elles sont bien complètement
+      <strong>fonctionnelles</strong>
+      sur Windows, Linux, Mac et Android.
+    </p>
+
+  </section>
+  <section>
+    <h2>Vos solutions</h2>
+    <p>
+
+      La solution la plus fiable pour tester cela serait de le faire directement
+      sur des machines de l’entreprise, mais elles sont toutes utilisées, et il
+      n’est pas question de monopoliser les machines de vos collègues pour faire
+      vos tests.
+
+    </p>
+    <p>
+      Heureusement, des solutions existent pour vous simplifier la vie et vous
+      permettre de faire tous vos tests sur votre propre ordinateur, grâce à
+      <strong>la virtualisation</strong>.
+    </p>
+
+  </section>
+  <section>
+    <h2>Intérêts de la virtualisation</h2>
+    <ul>
+      <li>tester un OS sans l'installer sur votre machine physique ;</li>
+      <li>s’assurer de la compatibilité d’une application avec différents OS ;</li>
+      <li>utiliser une application dans un environnement particulier ;</li>
+      <li>utiliser les fonctionnalités spécifiques d’un OS ;</li>
+      <li>simuler une 2e machine et faire des tests de communication simples ;</li>
+      <li>créer un petit réseau de plusieurs machines ;</li>
+      <li>simuler des environnements multi-OS ;</li>
+      <li>mutualiser des serveurs physiques et faire des économies ;</li>
+      <li>partager un serveur physique en plusieurs serveurs virtuels ;</li>
+      <li>
+        rendre une architecture hautement disponible (HA) en améliorant
+        sensiblement sa tolérance aux pannes ;</li>
+      <li>migrer des serveurs virtuels sur de nouveaux serveurs physiques ;</li>
+      <li>
+        déployer un serveur virtuel à la volée ;</li>
+      <li>faciliter les opérations de maintenance.</li>
+
+    </ul>
+
+  </section>
+  <section>
+    <h2>Caractéristiques d'une machine virtuelle</h2>
+
+    <section>
+      <h3>Machine virtuelle</h3>
+      <p>
+        Ce qu’on appelle machine virtuelle ou VM (Virtual Machine), est une
+        machine qui n’est pas physique ; autrement dit, qui n’est pas constituée
+        de ressources physiques.
+      </p>
+    </section>
+    <section>
+      <h3>Les types de ressources</h3>
+      <p>Pour fonctionner, une machine a effectivement besoin de 4 types de
+        ressources principaux
+      </p>
+      <ul>
+        <li>le CPU</li>
+        <li>la mémoire (RAM)</li>
+        <li>le stockage (disque dur)</li>
+        <li>le réseau (optionnel)</li>
+      </ul>
+    </section>
+    <section>
+      <p>
+        Comment une machine virtuelle peut-elle donc fonctionner sans ressources
+        physiques
+      </p>
+      <p>
+        elle utilise les ressources d’une machine physique sur laquelle elle est
+        installée : la machine hôte.
+      </p>
+
+    </section>
+  </section>
+  <section>
+    <p>
+      Le principe de la virtualisation repose effectivement sur le partage de
+      ressources.
+    </p>
+    <p>
+      La machine hôte n’a pas forcément besoin de 100 % de chaque type de
+      ressource pour fonctionner, elle peut donc en “prêter” ou en allouer une
+      partie à une ou plusieurs VM
+    </p>
+  </section>
+  <section>
+    <h2>L'hyperviseur</h2>
+    <p> Mais comment se répartissent-elles les ressources ?</p>
+    <p>
+      Nativement, les machines (Windows, Linux ou autre) ne sont pas capables de
+      partager les ressources physiques qu’elles utilisent.
+    </p>
+    <section>
+      <h3>Définitio</h3>
+      <p>
+        une catégorie d’applications capables de partager les ressources de la
+        machine sur laquelle elles sont installées.
+      </p>
+    </section>
+    <section>
+      <h3>Le rôle </h3>
+      <p> L’hyperviseur a 2 rôles majeurs</p>
+      <ul>
+        <li>créer des ressources virtuelles propres à chaque VM </li>
+        <li>répartir ses propres ressources</li>
+      </ul>
+
+      <section>
+        <h4>Créer des ressources virtuelles propres à chaque VM </h4>
+        <p>
+          Dans un premier temps, il crée pour chaque VM des ressources
+          virtuelles. En effet, les VM ne vont pas aller se servir directement
+          dans les ressources de la machine hôte, tout simplement car elles
+          n’ont pas conscience d’être des VM hébergées sur un hôte.
+        </p>
+        <p>
+          Elles vont donc aller piocher dans leurs ressources virtuelles. Et
+          comme n’importe quelle machine physique, une VM aura donc son propre
+          disque dur, sa mémoire, son processeur et ses périphériques, à la
+          différence près que tout cela sera virtuel.
+        </p>
+      </section>
+
+      <section>
+        <h4>
+          Répartir ses propres ressources
+        </h4>
+        <p>
+          Dans un second temps, l’hyperviseur joue le rôle de chef d’orchestre
+          pour allouer à chaque VM les ressources dont elles ont besoin, au bon
+          moment et dans les bonnes quantités (mais dans une certaine limite qui
+          aura été fixée).
+        </p>
+      </section>
+    </section>
+
+  </section>
+
+</main>

@@ -1,1 +1,12 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+@import url(./base.css);
+@import url(./layout.css);
+@import url(./landing.css);
+@import url(./dhcp.css);
+@import url(./contact.css);
+@import url(./client-server.css);
+@import url(./ip.css);
+@import url(./dns.css);
+@import url(./virtualisation.css);
+@import url('./hypervisor.css');
+

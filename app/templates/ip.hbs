@@ -1,0 +1,113 @@
+<main class="main ip__main">
+
+  <h1>IP</h1>
+
+  <section>
+
+    <section>
+      <h2>Associer un nom à une adresse IP</h2>
+      <p>
+        Les machines sont identifiées grâce à leurs adresses IP. Mais lorsque
+        vous naviguez sur Internet, vous ne manipulez aucune adresse IP, alors
+        qu’elles sont indispensables. Par exemple, pour aller sur le moteur de
+        recherche Qwant ou sur Wikipedia, vous ne renseignez aucune adresse IP.
+        Vous utilisez à la place une URL (Uniform Resource Locator),
+        c’est-à-dire une adresse web qui contient un nom renvoyant à la machine
+        qui héberge le site web.
+      </p>
+      <section>
+        <h4>URL</h4>
+        <p>
+          Un nom est beaucoup plus facile à mémoriser qu’une adresse IP.
+          Cependant, même si vous identifiez une machine par son nom, c’est
+          toujours l’adresse IP qui, au final, sera utilisée par les machines
+          pour communiquer. Même avec un serveur DNS sur le réseau, vous devrez
+          toujours configurer les adresses IP de vos machines. Vous pouvez
+          d’ailleurs faire le test suivant pour vérifier que les adresses IP
+          sont toujours utilisées. Ouvrez une invite de commandes et entrez la
+          commande :
+        </p>
+        <pre>ping www.qwant.com</pre>
+        <p>
+          Comme vous pouvez le voir, la requête ping fonctionne aussi lorsque
+          l’on remplace l’adresse IP par un nom. Si j’envoie un ping vers un nom
+          existant, celui-ci est automatiquement traduit par une adresse IP :
+          ici 194.187.168.100.
+        </p>
+        <p>
+          Cette adresse IP n’est autre que l’adresse de la machine qui héberge
+          le moteur de recherche Qwant.
+        </p>
+
+      </section>
+      <section>
+        <h4>Adresse IP </h4>
+        <p>
+          À la place d’écrire qwant.com dans la barre d’adresse de votre
+          navigateur web, vous pourriez tout à fait y inscrire son adresse IP.
+          La page s’afficherait dans tous les cas.
+        </p>
+        <p>
+          Comment la traduction entre nom et adresse IP se fait-elle ?
+        </p>
+        <p>
+          Pour envoyer un message vers une autre machine, connaître le nom de la
+          machine destinataire ne suffit pas. La machine source doit
+          obligatoirement indiquer l’adresse IP de la machine de destination sur
+          le paquet à envoyer. Pour obtenir cette adresse IP à partir d’un nom,
+          elle va demander à une machine tierce : le serveur DNS.
+        </p>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>Table d'allocation d'adresses IP</h2>
+      <p>
+        Dans la table d’allocation d’adresses IP, chaque adresse IP est associée
+        à :
+      </p>
+      <ul>
+        <li>
+          l’adresse MAC de la machine qui a récupéré cette IP
+        </li>
+        <li>
+          une date de fin de bail.
+        </li>
+
+      </ul>
+      <section>
+        <h3>Date de fin de bail</h3>
+        <p>
+          Une adresse IP est toujours allouée pour un temps défini par le
+          serveur DHCP. Cela évite que les adresses IP soient affectées
+          indéfiniment à des machines qui ne sont plus dans le réseau. Juste
+          avant que le bail n’arrive à échéance, le client demande le
+          renouvellement du bail auprès du serveur DHCP. S’il n’obtient pas de
+          réponse, il doit libérer l’adresse.
+        </p>
+      </section>
+      <section>
+        <h3>Représentation de la table d'allocation</h3>
+        <p>
+          Adresse IP Adresse MAC Fin de bail 192.168.0.1/24 E3:34:12:35:FE:2A
+          09/09/99 à 9h09 192.168.0.2/24 D3:54:20:00:FF:23 15/09/99 à 8h00
+        </p>
+      </section>
+      <section>
+        <h3>Vérifier son serveur DHCP grâce à l’invite de commandes </h3>
+        <p>
+          Si vous êtes connecté à Internet depuis votre ordinateur ou votre
+          smartphone, un serveur vous a sans doute attribué une adresse IP.
+        </p>
+        <p>
+          Vous pouvez d’ailleurs le vérifier sous Windows en ouvrant une invite
+          de commandes et en tapant :
+          <pre>ipconfig /all</pre>
+        </p>
+      </section>
+
+    </section>
+  </section>
+
+</main>

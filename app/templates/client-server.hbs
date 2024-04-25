@@ -1,0 +1,131 @@
+<main class="main client-server__main">
+  <h1>La configuration client-serveur</h1>
+  <section>
+    <section>
+      <h2>Le Protocole DHCP </h2>
+      <p>
+        Comme la plupart des protocoles,
+        <LinkTo @route="dhcp" role="link">le DHCP</LinkTo>
+        fonctionne en mode client-serveur. Il a donc besoin :
+      </p>
+      <ul>
+        <li>
+          d’une machine jouant le rôle de serveur ;
+        </li>
+        <li>
+          d’une ou plusieurs machines jouant le rôle de client(s).
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Serveur</h2>
+      <p>
+        Un serveur est un ordinateur configuré pour répondre automatiquement à
+        des requêtes spécifiques.
+      </p>
+      <p>
+        Le serveur DHCP, par exemple, répond aux requêtes de type DHCP. Tout
+        poste utilisateur peut donc devenir un serveur DHCP, web ou mail, s’il a
+        été configuré dans ce sens.
+      </p>
+    </section>
+    <section>
+      <h2>Le serveur et le(s) client(s)</h2>
+      <p>
+        Le serveur et le(s) client(s) sont configurés de manières différentes.
+      </p>
+      <section>
+        <h3>Configuration du serveur</h3>
+        <p>
+          Le serveur doit être configuré pour :
+        </p>
+        <ul>
+          <li>
+            répondre aux requêtes des clients qui demandent une adresse IP ;
+          </li>
+          <li>
+            leur attribuer une adresse pour une durée définie ;
+          </li>
+          <li>
+            choisir l’adresse dans une plage d’adresses qu’on lui aura
+            spécifiée.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Configuration du client</h3>
+        Les clients doivent être configurés pour :
+        <ul>
+          <li>
+            demander automatiquement une adresse IP dès qu’ils sont connectés
+            physiquement à un réseau.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Les échanges entre clients et serveur</h3>
+        <p>
+          Une fois les machines configurées, voilà comment se déroulent les
+          échanges entre client et serveur :
+        </p>
+        <ul role="list">
+          <li>découverte</li>
+          <li>offre</li>
+          <li>requête</li>
+          <li>acquittement</li>
+        </ul>
+        <p>
+          Le processus se déroule généralement en 4 étapes, qui correspondent à
+          l’échange de 4 messages :
+        </p>
+        <section>
+          <h4>DHCP Discover (Découverte)</h4>
+          <p>Y a-t-il quelqu’un pour m’attribuer une adresse IP ?</p>
+          <p>
+            Un client vient de se connecter au réseau. Il émet une requête à
+            tout le réseau pour savoir si un serveur DHCP peut lui attribuer une
+            adresse. À ce stade, le seul moyen d’identification qu’a le client
+            est son adresse MAC.
+          </p>
+          <p>
+            La requête est donc envoyée à tout le réseau, avec comme adresse
+            source, l’adresse MAC du client.
+          </p>
+        </section>
+        <section>
+          <h4>
+            DHCP Offer (Offre)
+          </h4>
+          <p>
+            Le serveur DHCP reçoit le message et répond au client en lui
+            fournissant une adresse IP. Ce message contenant l’adresse IP est
+            envoyé à destination de l’adresse MAC du client.
+          </p>
+        </section>
+        <section>
+          <h4>
+            DHCP Request (Requête)
+          </h4>
+          <p>
+            Le client accepte l’offre et demande au serveur de lui envoyer en
+            confirmation un message contenant tous les paramètres de
+            configuration, et d’enregistrer l’IP allouée.
+          </p>
+        </section>
+        <section>
+          <h4>
+            DHCP Ack (Acquittement)
+          </h4>
+          <p>
+            Le serveur envoie le message de confirmation et met à jour sa table
+            d’allocation d’IP.
+          </p>
+        </section>
+
+      </section>
+
+    </section>
+
+  </section>
+
+</main>

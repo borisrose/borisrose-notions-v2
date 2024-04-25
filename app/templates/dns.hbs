@@ -1,0 +1,219 @@
+<main class="main dns__main">
+  <h1>DNS </h1>
+  <section>
+
+    <section>
+      <h2>Définition</h2>
+      <p>
+        DNS (Domain Name System) signifie “Système de Noms de Domaine”. Ce
+        service permet de faire la correspondance entre des noms et des adresses
+        <LinkTo @route="ip" role="link">IP</LinkTo>.
+      </p>
+      <p>
+        On peut le voir comme une sorte d’annuaire.
+      </p>
+      <p>
+        Ce service repose sur un protocole également appelé DNS.
+      </p>
+
+      <section>
+        <h3>
+          Nommage
+        </h3>
+        <p>
+          Il existe 2 types de nommage pour une machine :
+        </p>
+        <ul>
+          <li>le nom de domaine </li>
+          <li>le nom d’hôte, couramment appelé “hostname”</li>
+        </ul>
+        <section>
+
+          <h4>
+            Le nom d'hôte
+          </h4>
+          <p>
+            Le nom d’hôte est utilisé pour identifier une machine.
+          </p>
+        </section>
+        <section>
+          <h4>Le nom de domaine</h4>
+          <p>
+            Le nom de domaine sert plutôt à identifier un service sur une
+            machine, c’est-à-dire une fonctionnalité, comme un site web ou le
+            stockage de fichiers, par exemple.
+          </p>
+        </section>
+
+      </section>
+      <p>
+        Le serveur DNS permet d’associer une adresse IP à un nom d’hôte ou à un
+        nom de domaine, ou aux deux en même temps.
+      </p>
+      <section>
+        <h3>Un ordinateur identifié par plusieurs noms</h3>
+        <p>
+          Une même machine peut également être associée à plusieurs noms d’hôte
+          ou noms de domaine. Exemple un ordinateur dont l’adresse IP est
+          212.27.3.1 peut être identifié par 3 noms différents :
+        </p>
+        <ul>
+          <li>un nom d’hôte : pc1</li>
+          <li>
+            deux noms de domaine : www.nomdedomaine.fr et www.nomdedomaine.com.</li>
+        </ul>
+
+      </section>
+      <section>
+        <h2>Configuration</h2>
+        <p>
+          Pour que les messages à destination de ces 3 noms arrivent bien à
+          destination de l’ordinateur ou du service, il faut configurer un
+          serveur DNS qui va associer l’adresse IP de l’ordinateur à ces 3 noms
+          à la manière d’un annuaire.
+        </p>
+        <section>
+          <h3>Record</h3>
+          <p>
+            Chacune des entrées dans l'annuaire DNS s’appelle un “Record”, ou
+            enregistrement.
+          </p>
+        </section>
+      </section>
+      <section>
+        <h2>Pourquoi donner plusieurs noms de domaine à une machine ?</h2>
+        <p>
+          C’est utile surtout lorsqu’une même machine héberge plusieurs services
+          réseau, comme plusieurs sites web.
+        </p>
+        <p>
+          En général, une machine n’aura qu’un seul nom d’hôte, mais pourra
+          avoir plusieurs noms de domaine.
+        </p>
+        <p>
+          Le premier nom de domaine pointera vers le site web 1, et le deuxième
+          nom de domaine vers le site web 2. Grâce aux DNS, l’utilisateur n’a
+          donc pas besoin de savoir sur quelle machine est hébergé un service,
+          il doit juste connaître le nom de domaine associé à ce service.
+        </p>
+
+      </section>
+
+      <section>
+        <h2>DNS et Architecture Client Serveur </h2>
+        <p>
+          A l'instar du protocole DHCP, le DNS fonctionne sur le mode
+          client-serveur : les clients émettent une requête vers un serveur qui
+          leur répond en leur indiquant une correspondance Nom-IP. Pour ajouter
+          cette fonctionnalité à un réseau, il faut donc configurer les clients
+          et le serveur.
+        </p>
+
+        <section>
+          <h3>Configuration du serveur </h3>
+          <p>
+            Le serveur devra être configuré pour : répondre aux requêtes des
+            clients qui demandent une correspondance Nom-IP ; associer des noms
+            avec des IP.
+          </p>
+        </section>
+
+        <section>
+          <h3>Configuration du client </h3>
+          <p>
+            Les clients, eux, auront juste besoin de connaître l’adresse IP du
+            serveur DNS.
+          </p>
+        </section>
+        <section>
+          <h3> Les échanges entre clients et serveur</h3>
+          <p>
+            Dans cet exemple, voyons les étapes de communication lorsque PC0
+            veut envoyer un ping à PC1 sans spécifier l’adresse IP de PC1 :
+            <ul>
+              <li>
+                La commande “ping PC1” est exécutée sur PC0.
+              </li>
+              <li>
+                PC0 ne connaît pas l’adresse IP du nom “PC1”, il envoie une
+                requête au serveur DNS pour lui demander une correspondance.
+              </li>
+              <li>
+                Le serveur DNS regarde dans sa table DNS s’il a une entrée
+                correspondant au nom “PC1”, et envoie une réponse contenant
+                l’adresse IP 192.168.0.2 associée.
+              </li>
+              <li>
+                PC0 récupère l’adresse IP de PC1, et peut générer le paquet ping
+                avec comme adresse de destination 192.168.0.2.
+              </li>
+            </ul>
+          </p>
+
+        </section>
+        <section>
+          <h3>Architectures plus aboutties</h3>
+          <p>
+            Dans des architectures plus abouties, le serveur DNS est souvent
+            connecté à un autre serveur DNS, lui-même connecté à un autre
+            serveur et ainsi de suite sur plusieurs niveaux. De cette manière,
+            si le premier serveur DNS ne connaît pas un nom ou une URL, les
+            autres serveurs DNS le connaîtront peut-être.
+
+          </p>
+        </section>
+
+        <section>
+          <h2>Vérifier son serveur DNS via l'invite de commandes </h2>
+          <p>
+            Vous pouvez vérifier sur votre propre machine quel serveur DNS elle
+            utilise. Dans l’invite de commandes Windows et entrez :
+
+            <pre>ipconfig /all</pre>
+
+            <p>
+              Lorsque que vous êtes chez vous, dans la majorité des cas, vous
+              n’avez pas besoin de préciser quel serveur DNS vous souhaitez
+              utiliser. Un serveur DNS par défaut est automatiquement attribué à
+              votre machine en même temps qu’une adresse IP.
+            </p>
+          </p>
+        </section>
+        <section>
+          <h2>Serveur DNS et Serveur DHCP</h2>
+          <p>
+            Mais d’où vient l’adresse IP de ce serveur DNS ? Elle vient du
+            serveur DHCP.
+          </p>
+          <p>
+            le serveur DHCP permet d'affecter une adresse IP aux machines, mais
+            aussi de leur fournir quelques informations de configuration comme :
+            <ul>
+              <li>
+                l’adresse IP de la passerelle par défaut à utiliser sur le
+                réseau
+              </li>
+              <li>
+                l’adresse IP d’un serveur DNS fonctionnel
+              </li>
+            </ul>
+
+          </p>
+        </section>
+        <section>
+          <h2>Plusieurs rôles pour une machine </h2>
+          <p>
+            Une même machine peut jouer le rôle de serveur DNS, serveur DHCP et
+            passerelle par défaut.
+          </p>
+          <p>
+            Cette configuration est très courante avec les box ADSL ou fibre,
+            qui jouent tous ces rôles à la fois.
+          </p>
+        </section>
+
+      </section>
+
+    </section>
+  </section>
+</main>
